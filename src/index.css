@@ -12,41 +12,40 @@ html, body {
 }
 
 body {
-  background-color: rgb(107, 218, 240);
+  background-color: rgb(8, 210, 250);
   padding: 50px;
   font-family: sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
 }
 
-ul.header li {
-  display: inline;
-  list-style-type: none;
-  margin: 0;
-}
 ul.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   background-color: #2772DB;
   padding: 0;
+  margin-bottom: 40px;
+  width: 400px;
 }
+
+ul.header li {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  width: 33%;
+  justify-content: center;
+}
+
 ul.header li a {
   color: #FFF;
   font-weight: bold;
   text-decoration: none;
   padding: 20px;
-  display: inline-block;
+  width: 100%;
+  text-align: center;
 }
-.content {
-  background-color: #FFF;
-  padding: 20px;
-}
-.content h2 {
-  padding: 0;
-  margin: 0;
-  font-weight: bold;
-}
-.content li {
-  margin-bottom: 10px;
-}
+
 .active {
   background-color: rgb(22, 39, 163);
 }
@@ -57,6 +56,17 @@ h3,
 h4,
 h5, 
 h6 {
-	margin: 0;
-	font-weight: normal;
+	margin-top: 0;
+	font-weight: lighter;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading {
+  font-size: 20px;
+  text-align: center;
 }

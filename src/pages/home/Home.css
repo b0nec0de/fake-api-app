@@ -1,0 +1,40 @@
+.home {
+   display: flex;
+   flex-direction: column;
+}
+
+.post {
+   background-color: #FFF;
+   padding: 15px;
+   margin-bottom: 20px;
+   min-width: 500px;
+}
+
+.post__name, .post__title, .post__body, .post__link {
+   margin: 0;
+   padding: 10px;
+}
+
+.post__name_header, .post__title_header, .post__body_header {
+   font-weight: bold;
+   /* font-style: italic; */
+   margin-right: 10px;
+}
+
+.post__link_details, .post__link_user {
+   text-decoration: none;
+   font-size: 14px;
+   color: black;
+}
+
+.more {
+   padding: 15px;
+   font-size: 14px;
+   font-weight: bold;
+   outline: none;
+   border: none;
+   color: black;
+   background-color: #FFF;
+   width: 50%;
+   align-self: center;
+}
