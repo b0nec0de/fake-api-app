@@ -46,20 +46,20 @@ class App extends React.Component {
 
 	getThatData(e, item) {
 		this.setState({
-			thatData: [{...item}]
+			thatData: [{ ...item }]
 		})
 	}
 
 	getUserData() {
 		let allUsers = this.state.initialUserData;
 		let randomUser = [];
-		
-		if(allUsers) {
+
+		if (allUsers) {
 			randomUser.push(allUsers[Math.floor(Math.random() * allUsers.length)]);
 		}
 		this.setState({
 			userData: randomUser
-		})			
+		})
 	}
 
 	componentDidMount() {
@@ -73,7 +73,7 @@ class App extends React.Component {
 					throw new Error('Something went wrong...');
 				}
 			})
-			.then(json => this.setState({data: json, isLoading: false}))
+			.then(json => this.setState({ data: json, isLoading: false }))
 			.catch(error => this.showError(error));
 
 		fetch('https://jsonplaceholder.typicode.com/users')
@@ -84,18 +84,18 @@ class App extends React.Component {
 					throw new Error('Something went wrong...');
 				}
 			})
-			.then(json => this.setState({initialUserData: json}))
-			.catch(error => this.showError(error));	
+			.then(json => this.setState({ initialUserData: json }))
+			.catch(error => this.showError(error));
 	}
 
 	render() {
-		const { data, 
-				  thatData, 
-				  userData, 
-				  isLoading, 
-				  error, 
-				  visible } = this.state;
-			
+		const { data,
+			thatData,
+			userData,
+			isLoading,
+			error,
+			visible } = this.state;
+
 		if (error) {
 			return <p>{error.message}</p>;
 		}

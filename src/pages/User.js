@@ -2,15 +2,9 @@ import React from 'react';
 
 function User(props) {
 
-		if(!props.userData) {
-			return null
-		}
-
-		console.log(props.userData);
-
 	return (
 		<div>
-			{	props.userData &&
+			{props.userData &&
 				props.userData.map(item =>
 					<div key={item.id} className="post">
 						<div className="post__name">
