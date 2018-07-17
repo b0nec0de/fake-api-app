@@ -7,6 +7,8 @@ import Details from './Details';
 import './home/Home.css';
 
 function Home(props) {
+	
+	console.log(props.data);
 	return (
 		<div className="home">
 			{props.data.slice(0, props.visible).map(item =>
@@ -15,7 +17,12 @@ function Home(props) {
 						<span className="post__title_header">UserId:</span> {item.id}
 					</div>
 					<div className="post__link">
-						<NavLink to="/details" className="post__link_details" onClick={(e) => props.getData(e, {item})}>See details...</NavLink>
+						<NavLink to="/details" 
+									className="post__link_details" 
+									onClick={(e) => props.getData(e, item)}
+						>
+							See details...
+						</NavLink>
 					</div>
 				</div>
 			)}

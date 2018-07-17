@@ -15,9 +15,11 @@ import registerServiceWorker from './registerServiceWorker';
 class App extends React.Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			data: null,
 			thatData: null,
+			initialUserData: null,
 			userData: null,
 			visible: 5,
 			isLoading: false,
@@ -44,14 +46,20 @@ class App extends React.Component {
 
 	getThatData(e, item) {
 		this.setState({
-			thatData: [{ ...item }]
+			thatData: [{...item}]
 		})
 	}
 
-	getUserData(e, detail) {
+	getUserData() {
+		let allUsers = this.state.initialUserData;
+		let randomUser = [];
+		
+		if(allUsers) {
+			randomUser.push(allUsers[Math.floor(Math.random() * allUsers.length)]);
+		}
 		this.setState({
-			userData: [{ ...detail }]
-		})
+			userData: randomUser
+		})			
 	}
 
 	componentDidMount() {
@@ -76,13 +84,18 @@ class App extends React.Component {
 					throw new Error('Something went wrong...');
 				}
 			})
-			.then(json => this.setState({userData: json}))
+			.then(json => this.setState({initialUserData: json}))
 			.catch(error => this.showError(error));	
 	}
 
 	render() {
-		const { data, thatData, userData, isLoading, error, visible } = this.state;
-
+		const { data, 
+				  thatData, 
+				  userData, 
+				  isLoading, 
+				  error, 
+				  visible } = this.state;
+			
 		if (error) {
 			return <p>{error.message}</p>;
 		}
@@ -106,10 +119,10 @@ class App extends React.Component {
 					</ul>
 					<div className="content">
 						<Route exact path="/"
-							render={(props) => <Home data={data} getData={this.getThatData} visible={visible} more={this.loadMore} />}
+							render={(props) => <Home data={data} thatData={thatData} getData={this.getThatData} visible={visible} more={this.loadMore} />}
 						/>
 						<Route path="/details"
-							render={(props) => <Details thatData={thatData} getUserData={this.getUserData} />}
+							render={(props) => <Details data={data} thatData={thatData} getUserData={this.getUserData} />}
 						/>
 						<Route path="/user"
 							render={(props) => <User userData={userData} />}

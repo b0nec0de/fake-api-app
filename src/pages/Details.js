@@ -6,24 +6,33 @@ import {
 import User from './User';
 
 function Details(props) {
+	if(!props.thatData) {
+		return null
+	}
+	console.log(props.thatData);
 	return (
 		<div>
 			{	props.thatData &&
-				props.thatData.map (detail =>
-					<div key={detail.id} className="post">
+				props.thatData.map (item =>
+					<div key={item.id} className="post">
 						<div className="post__title">
 							<span className="post__title_header">Title:</span> 
-								{detail.title}
+								{item.title}
 						</div>
 						<div className="post__body">
 							<span className="post__body_header">Body:</span>
-								{detail.body}
+								{item.body}
 						</div>
 						<div className="post__link">
-						<NavLink to="/user" className="post__link_user" onClick={(e) => props.getUserData(e, {detail})}>User details...</NavLink>
+						<NavLink to="/user" className="post__link_user" 
+									onClick={() => props.getUserData()}
+						>
+								User details...
+						</NavLink>
 						</div>
 					</div>
-				)}
+				)
+			}
 
 			<Route path="/user" component={User} />
 		</div>
