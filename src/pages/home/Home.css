@@ -22,7 +22,7 @@
 }
 
 .post__link_details, .post__link_user {
-   text-decoration: none;
+   font-style: oblique;
    font-size: 14px;
    color: black;
 }
