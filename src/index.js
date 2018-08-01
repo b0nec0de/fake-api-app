@@ -111,7 +111,7 @@ class App extends React.Component {
 		return (
 			<BrowserRouter>
 				<div className="app">
-					<h2>Fake-API-Output</h2>
+					<h2 className="app-title">Fake-API-Output</h2>
 					<ul className="header">
 						<li><NavLink exact to="/">Home</NavLink></li>
 						<li><NavLink to="/details">Details</NavLink></li>
