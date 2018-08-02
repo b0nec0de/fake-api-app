@@ -32,9 +32,9 @@
    font-size: 14px;
    font-weight: bold;
    outline: none;
-   border: none;
-   color: black;
-   background-color: #FFF;
+   border: 1px solid white;
+   background-color: transparent;
+   color: white;
    width: 50%;
    align-self: center;
    margin-bottom: 20px;
